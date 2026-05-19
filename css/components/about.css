@@ -1,0 +1,378 @@
+/* ==========================================================================
+   About — Depth Layer: GRAIN(z0) | SPINE(z1) | PHOTO(z2) | CONTENT(z3)
+   ========================================================================== */
+
+:root {
+  --about-photo-w: min(36vw, 500px);
+  --about-photo-h: min(98.4vh, 624px);
+  --about-photo-left: 64px;
+  /* flush to left, owns the dark field */
+}
+
+/* Grain canvas — behind all layers */
+.about-grain-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about-section {
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+  padding: 0 64px;
+}
+
+/* Ghost SS */
+.about-ghost {
+  position: absolute;
+  right: -0.06em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(200px, 26vw, 400px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--rust);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  will-change: opacity;
+}
+
+/* ── ABOUT Spine: z:1
+   Uses a track wrapper that matches the photo dimensions exactly.
+   The spine sits inside using writing-mode so no rotation math needed. ── */
+.about-spine-track {
+  position: absolute;
+  left: 48px;
+  top: 60%;
+  transform: translateY(-50%);
+  width: 146px;
+  height: min(82vh, 520px);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+
+.about-spine {
+  font-family: 'DM Serif Display', serif;
+  font-size: 200px;
+  line-height: 1;
+  width: min(82vh, 520px);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--rust);
+  transform: rotate(-90deg);
+  opacity: 1;
+  pointer-events: none;
+  user-select: none;
+  will-change: opacity;
+}
+
+
+/* ── Photo col: z:2 — absolute, no space reserved in flow ── */
+.about-photo-col {
+  position: absolute;
+  left: var(--about-photo-left);
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--about-photo-w);
+  height: var(--about-photo-h);
+  z-index: 4;
+}
+
+.about-photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.about-photo-shadow {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(24px 0 48px rgba(0,0,0,0.85));
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%) contrast(1.1) brightness(0.05);
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* -webkit-mask-image: linear-gradient(to right, black 55%, transparent 90%); */
+  /* mask-image: linear-gradient(to right, black 55%, transparent 100%); */
+}
+
+/* .about-photo-wrap:hover .about-photo {
+  transform: scale(1.03);
+} */
+
+
+
+.about-photo-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 48px 20px 18px;
+  background: linear-gradient(to top, rgba(12, 11, 9, 0.96) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 65%, transparent 100%);
+  mask-image: linear-gradient(to right, black 65%, transparent 100%);
+  opacity: 0;
+  z-index: 4;
+}
+
+.about-photo-name h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.about-photo-name p {
+  font-size: 10px;
+  color: var(--rust);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ── Content col: z:3 — 80px to the right of the photo, independent of flow ── */
+.about-content-col {
+  position: absolute;
+  left: calc(var(--about-photo-left) + var(--about-photo-w) - 95px);
+  right: 64px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--rust);
+  margin-bottom: 28px;
+  /* 28 before */
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0.7;
+}
+
+.about-headline {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3.5rem, 8.1vw, 9rem);
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0 0 48px 0;
+  /* 36 before */
+  letter-spacing: -0.02em;
+}
+
+.about-word {
+  display: inline-block;
+  opacity: 0;
+  /* GSAP owns reveal; prevents FOUC on defer-load */
+  will-change: opacity, filter, transform;
+}
+
+.about-word-em {
+  font-style: italic;
+  color: var(--rust);
+}
+
+.about-body {
+  font-size: 1.15rem;
+  color: var(--text-mid);
+  line-height: 1.72;
+  max-width: 460px;
+  margin: 0;
+  opacity: 0;
+}
+
+.about-mentor-rule {
+  width: 32px;
+  height: 1px;
+  background: rgba(184, 92, 56, 0.45);
+  margin-bottom: 16px;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.about-mentor-text {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+  margin: 0;
+  opacity: 0;
+}
+
+.about-seam {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184, 92, 56, 0.18), transparent);
+}
+
+/* ==========================================================================
+   AC-QUOTE — Testimonial field inside the about section
+   Act 1: foreground (opacity 1, blur 0). Act 2: atmospheric field (opacity 0.07, blur 18px).
+   ========================================================================== */
+
+.ac-quote {
+  position: absolute;
+  width: 55%;
+  max-width: 760px;
+  opacity: 0.13;
+  /* atmospheric field visible from frame 1 */
+  filter: blur(14px);
+  transform: scale(0.95);
+  pointer-events: none;
+  will-change: opacity, filter, transform;
+  z-index: 5;
+}
+
+.ac-quote-1 {
+  top: 12%;
+  left: 5%;
+}
+
+.ac-quote-2 {
+  top: 36%;
+  right: 4%;
+  text-align: right;
+}
+
+.ac-quote-3 {
+  top: 58%;
+  left: 9%;
+}
+
+.ac-quote-4 {
+  top: 62%;
+  right: 9%;
+  text-align: right;
+}
+
+.ac-quote-5 {
+  top: 24%;
+  left: 36%;
+}
+
+.ac-quote p {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--text);
+  line-height: 1.22;
+  margin: 0 0 18px 0;
+}
+
+.ac-quote-author {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--rust);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* Keep old kinetic chorus rules inert — section removed from HTML */
+
+.chorus-quote {
+  position: absolute;
+  width: 60%;
+  max-width: 800px;
+  opacity: 0.15;
+  filter: blur(8px);
+  transform: scale(0.95);
+  pointer-events: none;
+  will-change: opacity, filter, transform;
+}
+
+.chorus-quote-1 {
+  top: 15%;
+  left: 5%;
+}
+
+.chorus-quote-2 {
+  top: 40%;
+  right: 5%;
+  text-align: right;
+}
+
+.chorus-quote-3 {
+  top: 60%;
+  left: 10%;
+}
+
+.chorus-quote-4 {
+  top: 75%;
+  right: 10%;
+  text-align: right;
+}
+
+.chorus-quote-5 {
+  top: 25%;
+  left: 40%;
+}
+
+.chorus-quote p {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0 0 24px 0;
+}
+
+.chorus-author {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--rust);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  :root {
+    --about-photo-w: min(50.4vw, 336px);
+    --about-photo-h: min(86.4vh, 480px);
+    --about-photo-left: 24px;
+  }
+
+  .about-content-col {
+    right: 24px;
+  }
+
+  .about-headline {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+  }
+}

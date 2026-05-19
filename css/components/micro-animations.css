@@ -1,0 +1,627 @@
+/* ==========================================================================
+   Micro-Animations - Phase 1
+   Subtle interactions that bring the portfolio to life
+   Following "Expect the Unexpected" theme
+   ========================================================================== */
+
+/* ==========================================================================
+   Multilingual Greeting Animation
+   ========================================================================== */
+
+.hero-greeting {
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  color: var(--rust);
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  display: inline-block;
+  position: relative;
+  min-height: 20px;
+  line-height: 1.1;
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(.25, .46, .45, .94) 0.3s forwards;
+}
+
+.hero-greeting::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 1em;
+  background: var(--rust);
+  opacity: 0;
+  animation: cursorBlink 1s step-end infinite;
+  pointer-events: none;
+}
+
+.hero-greeting.typing::after {
+  opacity: 1;
+}
+
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes greetingFadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes greetingFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================================
+   Stats Grid Interactions
+   ========================================================================== */
+
+.hero-stat-cell {
+  position: relative;
+  overflow: visible;
+}
+
+/* Particle container */
+.stat-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hero-stat-cell:hover .stat-particles {
+  opacity: 1;
+}
+
+/* Individual particle */
+.stat-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--rust);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Enhanced hover state */
+.hero-stat-cell {
+  transition: background 0.3s, box-shadow 0.3s cubic-bezier(.25, .46, .45, .94);
+}
+
+.hero-stat-cell:hover {
+  background: rgba(184, 92, 56, 0.06);
+  box-shadow: 0 4px 16px rgba(184, 92, 56, 0.15),
+              inset 0 0 0 1px rgba(184, 92, 56, 0.1);
+}
+
+/* Border glow animation */
+.hero-stat-cell::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--rust);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.hero-stat-cell:hover::after {
+  opacity: 0.3;
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(184, 92, 56, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(184, 92, 56, 0.4);
+  }
+}
+
+/* Number pop animation */
+.stat-number {
+  transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.hero-stat-cell:hover .stat-number {
+  transform: scale(1.08);
+}
+
+.hero-stat-cell {
+  position: relative;
+  overflow: visible;
+}
+
+/* Particle container */
+.stat-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hero-stat-cell:hover .stat-particles {
+  opacity: 1;
+}
+
+/* Individual particle */
+.stat-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--rust);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Enhanced hover state */
+.hero-stat-cell {
+  transition: background 0.3s, box-shadow 0.3s cubic-bezier(.25, .46, .45, .94);
+}
+
+.hero-stat-cell:hover {
+  background: rgba(184, 92, 56, 0.06);
+  box-shadow: 0 4px 16px rgba(184, 92, 56, 0.15),
+              inset 0 0 0 1px rgba(184, 92, 56, 0.1);
+}
+
+/* Border glow animation */
+.hero-stat-cell::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--rust);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.hero-stat-cell:hover::after {
+  opacity: 0.3;
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(184, 92, 56, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(184, 92, 56, 0.4);
+  }
+}
+
+/* Number pop animation */
+.stat-number {
+  transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.hero-stat-cell:hover .stat-number {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   Liquid-in-Glass Cursor System
+   Dot = Liquid blob (organic, morphing, alive)
+   Ring = Glass halo (container with shimmer)
+   ========================================================================== */
+
+/* Base cursor - liquid blob with morphing + gravity */
+.cursor {
+  animation: liquidMorph 3.5s ease-in-out infinite, liquidBreathe 2.5s ease-in-out infinite;
+  transform-origin: 50% 60%; /* Gravity: slightly bottom-heavy */
+  transition: filter 0.3s ease-out;
+  will-change: transform, border-radius;
+}
+
+.cursor-ring {
+  animation: glassShimmer 4s ease-in-out infinite;
+  transition: border-color 0.3s ease-out,
+              border-width 0.3s ease-out,
+              opacity 0.3s ease-out,
+              transform 0.3s ease-out,
+              filter 0.2s ease-out,
+              box-shadow 0.3s ease-out;
+  will-change: transform, box-shadow;
+}
+
+/* ===== LIQUID MORPHING (Organic blob shape) ===== */
+@keyframes liquidMorph {
+  0% {
+    border-radius: 50% 48% 52% 50% / 50% 52% 48% 50%;
+  }
+  25% {
+    border-radius: 48% 52% 50% 48% / 52% 48% 50% 52%;
+  }
+  50% {
+    border-radius: 52% 48% 48% 52% / 48% 50% 52% 48%;
+  }
+  75% {
+    border-radius: 50% 52% 48% 50% / 50% 48% 52% 50%;
+  }
+  100% {
+    border-radius: 50% 48% 52% 50% / 50% 52% 48% 50%;
+  }
+}
+
+/* ===== LIQUID BREATHING (Gentle pulsing) ===== */
+@keyframes liquidBreathe {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* ===== GLASS SHIMMER (Subtle Apple-style) ===== */
+@keyframes glassShimmer {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(184, 92, 56, 0.08);
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    box-shadow: 0 0 5px rgba(184, 92, 56, 0.12);
+    transform: translate(-50%, -50%) rotate(1deg);
+  }
+  50% {
+    box-shadow: 0 0 6px rgba(184, 92, 56, 0.15);
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  75% {
+    box-shadow: 0 0 5px rgba(184, 92, 56, 0.12);
+    transform: translate(-50%, -50%) rotate(-1deg);
+  }
+}
+
+/* ===== EXCITED STATE (On Buttons) ===== */
+/* Liquid vibrates with excitement, glass glows */
+@keyframes liquidVibrate {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 50% 48% 52% 50% / 50% 52% 48% 50%;
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(1.04);
+    border-radius: 48% 52% 50% 48% / 52% 48% 50% 52%;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    border-radius: 52% 48% 48% 52% / 48% 50% 52% 48%;
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.04);
+    border-radius: 50% 52% 48% 50% / 50% 48% 52% 50%;
+  }
+}
+
+@keyframes glassGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 0 5px rgba(184, 92, 56, 0.15);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 6px rgba(184, 92, 56, 0.2);
+  }
+}
+
+.cursor.excited {
+  animation: liquidVibrate 1.4s ease-in-out infinite;
+  filter: brightness(1.2) drop-shadow(0 2px 6px rgba(184, 92, 56, 0.4));
+}
+
+.cursor-ring.excited {
+  animation: glassGlow 1.4s ease-in-out infinite;
+  border-color: rgba(184, 92, 56, 0.7);
+  border-width: 1.5px;
+}
+
+/* ===== CURIOUS STATE (On Text/Images) ===== */
+/* Liquid focuses (smaller), glass expands (magnifying) */
+@keyframes liquidFocus {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.85);
+    border-radius: 50%;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.88);
+    border-radius: 48% 52% 50% 48%;
+  }
+}
+
+.cursor.curious {
+  animation: liquidFocus 2s ease-in-out infinite;
+  filter: brightness(1.1);
+}
+
+.cursor-ring.curious {
+  transform: translate(-50%, -50%) scale(1.4);
+  border-color: rgba(184, 92, 56, 0.5);
+  opacity: 0.8;
+  box-shadow: 0 0 5px rgba(184, 92, 56, 0.12);
+}
+
+/* ===== LIQUID SPLASH (On Click - Apple-style instant) ===== */
+/* Liquid squashes quickly, particles start immediately */
+.cursor.squashing {
+  animation: liquidSquash 0.08s cubic-bezier(.34, 1.56, .64, 1) forwards;
+}
+
+@keyframes liquidSquash {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 50%;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.3, 0.7);
+    border-radius: 60% 40% 40% 60% / 40% 60% 40% 60%;
+  }
+}
+
+.cursor.exploding {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: opacity 0.1s, transform 0.1s;
+}
+
+.cursor.reforming {
+  animation: liquidReform 0.5s cubic-bezier(.34, 1.56, .64, 1) forwards;
+}
+
+@keyframes liquidReform {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.4, 0.8);
+    border-radius: 60% 40% 40% 60% / 40% 60% 40% 60%;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(0.9, 1.1);
+    border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 50% 48% 52% 50% / 50% 52% 48% 50%;
+  }
+}
+
+/* Glass impact ripple */
+.cursor-ring.ripple {
+  animation: glassImpact 0.7s cubic-bezier(.25, .46, .45, .94) forwards;
+}
+
+@keyframes glassImpact {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    border-width: 2px;
+    box-shadow: 0 0 4px rgba(184, 92, 56, 0.1);
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.8;
+    border-width: 1.5px;
+    box-shadow: 0 0 6px rgba(184, 92, 56, 0.15);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.9);
+    opacity: 0.4;
+    border-width: 1px;
+    box-shadow: 0 0 8px rgba(184, 92, 56, 0.12);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    border-width: 1px;
+    box-shadow: 0 0 4px rgba(184, 92, 56, 0.08);
+  }
+}
+
+/* Particle elements */
+.cursor-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--rust);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+}
+
+/* ===== COMET STATE (Fast Movement) ===== */
+/* Ring lags behind with motion blur, creating comet trail */
+.cursor-ring.comet {
+  opacity: 0.4;
+  filter: blur(2px);
+  transition: opacity 0.15s ease-out, filter 0.15s ease-out;
+  border-width: 2px;
+  border-color: rgba(184, 92, 56, 0.6);
+}
+
+/* Cursor label for context */
+.cursor-label {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  background: var(--rust);
+  color: var(--text);
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.cursor-label.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ==========================================================================
+   Work Card Hover Enhancements
+   ========================================================================== */
+
+.home-work-card {
+  transition: transform 0.4s cubic-bezier(.25, .46, .45, .94), 
+              box-shadow 0.4s cubic-bezier(.25, .46, .45, .94);
+}
+
+.home-work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(184, 92, 56, 0.15);
+}
+
+/* Featured card special treatment */
+.home-work-card.featured:hover .work-visual svg line {
+  animation: linePulse 2s ease-in-out infinite;
+}
+
+@keyframes linePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* ==========================================================================
+   Navigation Micro-interactions
+   ========================================================================== */
+
+/* Animated underline for nav links */
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--rust);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(.25, .46, .45, .94);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-links a.active::after {
+  animation: underlinePulse 2s ease-in-out infinite;
+}
+
+@keyframes underlinePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* CTA button shimmer effect - REMOVED */
+/* Shimmer was escaping button boundaries and traveling across header */
+/* Keeping button clean and simple */
+
+/* ==========================================================================
+   Button Enhancements
+   ========================================================================== */
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(240, 237, 232, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ==========================================================================
+   Accessibility - Respect reduced motion preference
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .hero-greeting::after {
+    animation: none;
+  }
+  
+  .stat-particles,
+  .cursor-label {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Performance Optimizations
+   ========================================================================== */
+
+.hero-stat-cell,
+.home-work-card,
+.cursor,
+.cursor-ring {
+  will-change: transform;
+}
+
+/* Remove will-change after animation completes */
+.hero-stat-cell:not(:hover),
+.home-work-card:not(:hover) {
+  will-change: auto;
+}
+

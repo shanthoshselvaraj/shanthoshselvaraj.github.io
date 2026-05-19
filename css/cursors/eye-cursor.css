@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Eye Cursor Animations
+   Animated eye cursor with rust-colored eyeball and text-colored eyelid
+   Simple design: just eye with shadow, no frosted glass backdrop
+   ========================================================================== */
+
+/* Cursor container */
+#cursor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999;
+    will-change: transform;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Frosted glass backdrop - hidden, only used for scroll pill */
+.cursor-glass-backdrop {
+    display: none;
+}
+
+/* SVG cursor styling - bigger with shadow */
+#cursor-svg {
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+    transition: transform 0.2s ease;
+}
+
+/* Eyeball element - rust color */
+#c-eyeball {
+    fill: var(--rust);
+    stroke: var(--rust);
+    transition: fill 0.1s ease, stroke 0.1s ease;
+}
+
+/* Eyelid element - text color */
+#c-eyelid {
+    stroke: var(--text);
+    stroke-linecap: round;
+}
+
+/* Cursor size variants - increased from 40px to 50px */
+#cursor-container.small #cursor-svg {
+    width: 40px;
+    height: 40px;
+}
+
+#cursor-container.medium #cursor-svg {
+    width: 50px;
+    height: 50px;
+}
+
+#cursor-container.large #cursor-svg {
+    width: 70px;
+    height: 70px;
+}
+
+/* Scroll Story Pill Cursor */
+#cursor-container.scroll-pill {
+    opacity: 1;
+}
+
+#cursor-svg {
+    transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+    transform: scale(1);
+}
+
+#cursor-container.scroll-pill #cursor-svg {
+    opacity: 0;
+    transform: scale(0.4);
+}
+
+#cursor-container.scroll-pill .cursor-glass-backdrop {
+    display: none;
+}
+
+.cursor-scroll-pill {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: var(--rust);
+    color: var(--text);
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 16px rgba(184, 92, 56, 0.4);
+    z-index: 2;
+}
+
+#cursor-container.scroll-pill .cursor-scroll-pill {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Dragger Cursor for Before/After Sliders */
+#cursor-container.dragger {
+    opacity: 1;
+}
+
+#cursor-container.dragger #cursor-svg {
+    display: none;
+}
+
+#cursor-container.dragger .cursor-glass-backdrop {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 40px;
+    background: rgba(184, 92, 56, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(184, 92, 56, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(184, 92, 56, 0.2);
+}
+
+.cursor-dragger-arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#cursor-container.dragger .cursor-dragger-arrows {
+    opacity: 1;
+}
+
+.cursor-dragger-arrows svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Accessibility: Show default cursor for keyboard navigation */
+*:focus-visible {
+    cursor: auto !important;
+    outline: 2px solid var(--rust);
+    outline-offset: 2px;
+}
+
+/* Disable on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    #cursor-container {
+        display: none;
+    }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    #cursor-container {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+

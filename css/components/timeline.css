@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Timeline
+   ========================================================================== */
+
+.timeline {
+  position: relative;
+  padding-left: 32px
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--rust), var(--border))
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: var(--rust);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(184, 92, 56, 0.15)
+}
+
+.timeline-period {
+  font-size: 11px;
+  color: var(--rust);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px
+}
+
+.timeline-role {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 4px
+}
+
+.timeline-company {
+  font-size: 14px;
+  color: var(--text-mid);
+  margin-bottom: 14px;
+  font-style: italic
+}
+
+.timeline-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px
+}
+
+.timeline-points li {
+  font-size: 14px;
+  color: var(--text-mid);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.6
+}
+
+.timeline-points li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--rust)
+}

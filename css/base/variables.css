@@ -1,0 +1,18 @@
+/* ==========================================================================
+   CSS Variables - Design Tokens
+   Theme colors and design system variables
+   ========================================================================== */
+
+:root {
+  --rust: #B85C38;
+  --rust-dim: #8a4228;
+  --rust-glow: rgba(184, 92, 56, 0.12);
+  --bg: #0C0B09;
+  --bg2: #131210;
+  --bg3: #1a1916;
+  --text: #F0EDE8;
+  --text-mid: #A09890;
+  --text-dim: #605850;
+  --border: rgba(240, 237, 232, 0.08);
+  --border-warm: rgba(184, 92, 56, 0.22);
+}

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shanthosh Selvaraj, Senior Product Designer</title>
+  <link rel="icon" type="image/svg+xml" href="images/sign.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Eye Cursor Animation CSS -->
+  <link rel="stylesheet" href="css/cursors/eye-cursor.css">
+  <!-- GSAP scroll story -->
+  <link rel="stylesheet" href="css/components/dlp-scroll-story.css">
+  <link rel="stylesheet" href="css/components/showcase-video.css">
+</head>
+
+<body>
+
+  <!-- Eye Cursor Container (dynamically created by eye-cursor-system.js) -->
+
+  <nav id="mainNav">
+    <a class="nav-logo" href="index.html"><img src="images/sign.svg" alt="SS Logo" style="height: 24px; width: auto; display: block;"></a>
+    <ul class="nav-links">
+      <li><a id="nav-home" class="active" href="index.html">Home</a></li>
+      <li><a id="nav-work" href="index.html#work-preview">Work</a></li>
+      <li><a href="index.html#frameworks">Frameworks</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#ee9d868f809a86819d86c09d8b82988f9c8f84ae819b9a82818185c08d8183"
+          class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE: HOME -->
+  <div class="page active" id="page-case-dlp">
+    <div class="detail-page">
+      <div class="detail-hero">
+        <a class="back-btn" href="index.html#work-preview">← All work</a>
+        <div class="detail-tags"><span class="case-tag">IBM · 0 &rarr; 1</span><span class="case-tag secondary">Agentic
+            UX</span><span class="case-tag secondary">Enterprise Beta</span></div>
+        <h1 class="detail-title">IBM Security's First Fully Agentic DLP Platform</h1>
+        <p class="detail-intro">Built against internal resistance. This isn’t a dashboard. It’s a living system of AI agents. Every analyst sees a different experience generated in real time for the threats, context, and decisions in front of them.</p>
+      </div>
+      <div class="detail-metrics">
+        <div class="detail-metric">
+          <div class="detail-metric-val">80%</div>
+          <div class="detail-metric-label">Fewer support calls</div>
+        </div>
+        <div class="detail-metric">
+          <div class="detail-metric-val">~60%</div>
+          <div class="detail-metric-label">Faster incident resolution</div>
+        </div>
+        <div class="detail-metric">
+          <div class="detail-metric-val">2&rarr;1</div>
+          <div class="detail-metric-label">Products unified (DLP + GAIDP)</div>
+        </div>
+        <div class="detail-metric">
+          <div class="detail-metric-val">75%</div>
+          <div class="detail-metric-label">Reduced policy load</div>
+        </div>
+      </div>
+      <div class="detail-body">
+        <div class="detail-nav-sidebar">
+          <button class="detail-nav-item"
+            onclick="document.getElementById('d-start').scrollIntoView({behavior:'smooth'})">How it started</button>
+          <button class="detail-nav-item"
+            onclick="document.getElementById('d-broken').scrollIntoView({behavior:'smooth'})">Why tools fail</button>
+          <button class="detail-nav-item"
+            onclick="document.getElementById('d-bet').scrollIntoView({behavior:'smooth'})">The bet</button>
+          <button class="detail-nav-item"
+            onclick="document.getElementById('d-built').scrollIntoView({behavior:'smooth'})">What I built</button>
+          <button class="detail-nav-item"
+            onclick="document.getElementById('d-room').scrollIntoView({behavior:'smooth'})">The room</button>
+          <button class="detail-nav-item"
+            onclick="document.getElementById('d-validation').scrollIntoView({behavior:'smooth'})">Validation</button>
+          <button class="detail-nav-item"
+            onclick="document.getElementById('d-outcome').scrollIntoView({behavior:'smooth'})">Outcome</button>
+        </div>
+        
+        <div class="detail-content">
+          <div class="detail-section" id="d-start">
+            <p class="detail-section-label">How it started</p>
+            <h2 class="detail-section-title">The brief was simple. The question wasn't.</h2>
+            <p>IBM had no DLP product. Microsoft Purview was already the default. Startups were shipping faster than any
+              enterprise vendor could respond. The window was narrowing. The brief: build one and take share.</p>
+            <p style="color:var(--text)">I had one question before anything else.</p>
+            <p>Security teams don't switch DLP tools. The category becomes infrastructure. Nobody replaces
+              infrastructure unless something is broken at the foundation. The question wasn't how to build faster. It
+              was whether the category itself was broken and whether IBM could build against that break instead of
+              into the noise.</p>
+            <p>I directed the research team to find out. Not what security teams wanted from a tool. What the market had
+              systematically gotten wrong.</p>
+            <div id="dlp-bridge-container"
+              style="position: relative; height: 24px; margin-top: 16px; transform-origin: left top; will-change: transform;">
+              <p id="dlp-bridge-normal"
+                style="position: absolute; top: 0; left: 0; margin: 0; color: var(--text-mid); font-weight: 400; white-space: nowrap;">
+                The answer was already sitting in the news.</p>
+              <p id="dlp-bridge-bold"
+                style="position: absolute; top: 0; left: 0; margin: 0; color: var(--rust); font-weight: 600; opacity: 0; white-space: nowrap;">
+                The answer was already sitting in the news.</p>
+            </div>
+          </div>
+
+          <hr class="detail-rule" style="display: none;"> <!-- Hidden since we go straight to the story -->
+
+          <!-- Scroll Story - Interactive Journey -->
+          <div id="scroll-story-wrapper" style="margin:36px 0;">
+            <div id="dlp-wrapper">
+              <div id="dlp-container">
+                <div id="dlp-viewport">
+                  <div id="dlp-caption"></div>
+
+                  <!-- SCENE 1 & 2: Browser & Laptop -->
+                  <div id="dlp-shared-browser" class="dlp-browser-window">
+                    <div class="dlp-chrome">
+                      <div class="dlp-chrome-dots">
+                        <div class="dlp-cdot red"></div>
+                        <div class="dlp-cdot yellow"></div>
+                        <div class="dlp-cdot green"></div>
+                      </div>
+                      <div class="dlp-chrome-url">meridiantech.io/press/new-architecture</div>
+                    </div>
+                    <div class="dlp-chrome-body">
+                      <div class="dlp-art-pub">Tech Meridian</div>
+                      <h1 class="dlp-art-h1">Meridian Systems Unveils <span id="dlp-h1-rust"
+                          style="transition: color 0.5s ease;">Next-Generation Architecture</span></h1>
+                      <div class="dlp-skeleton-bars" style="margin-top: 16px; margin-bottom: 24px;">
+                        <div
+                          style="width: 85%; height: 8px; background: rgba(240,237,232,0.1); margin-bottom: 8px; border-radius: 4px;">
+                        </div>
+                        <div
+                          style="width: 92%; height: 8px; background: rgba(240,237,232,0.1); margin-bottom: 8px; border-radius: 4px;">
+                        </div>
+                        <div style="width: 60%; height: 8px; background: rgba(240,237,232,0.1); border-radius: 4px;">
+                        </div>
+                      </div>
+                      <p class="dlp-art-label">Figure 1 — System Architecture</p>
+                      <div class="dlp-art-diagram"
+                        style="transform: scale(1.4); transform-origin: top center; margin-top: 16px;">
+                        <svg viewBox="0 0 120 90" width="140" height="105" fill="none">
+                          <line x1="30" y1="20" x2="90" y2="20" stroke="#888780" stroke-width="1" />
+                          <line x1="90" y1="20" x2="60" y2="70" stroke="#888780" stroke-width="1" />
+                          <line x1="30" y1="20" x2="60" y2="70" stroke="#888780" stroke-width="1" />
+                          <line x1="90" y1="20" x2="110" y2="45" stroke="#888780" stroke-width="1"
+                            stroke-dasharray="4 3" />
+                          <circle cx="30" cy="20" r="7" fill="#888780" />
+                          <circle cx="90" cy="20" r="7" fill="#888780" id="dlp-browser-rust-dot" />
+                          <circle cx="60" cy="70" r="7" fill="#888780" />
+                          <circle cx="110" cy="45" r="5" fill="#888780" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="dlp-shared-laptop" class="dlp-laptop">
+                    <div class="dlp-laptop-screen">
+                      <div class="dlp-doc-window">
+                        <div class="dlp-doc-chrome">
+                          <div class="dlp-chrome-dots">
+                            <div class="dlp-cdot red"></div>
+                            <div class="dlp-cdot yellow"></div>
+                            <div class="dlp-cdot green"></div>
+                          </div>
+                          <div class="dlp-doc-title" style="font-size: 11px;">Project R — CONFIDENTIAL</div>
+                        </div>
+                        <div class="dlp-doc-body">
+                          <svg id="dlp-laptop-svg" viewBox="0 0 120 90" width="200" height="150" fill="none">
+                            <line x1="30" y1="20" x2="90" y2="20" stroke="#888780" stroke-width="1" />
+                            <line x1="90" y1="20" x2="60" y2="70" stroke="#888780" stroke-width="1" />
+                            <line x1="30" y1="20" x2="60" y2="70" stroke="#888780" stroke-width="1" />
+                            <line x1="90" y1="20" x2="110" y2="45" stroke="#888780" stroke-width="1"
+                              stroke-dasharray="4 3" />
+                            <circle cx="30" cy="20" r="7" fill="#888780" />
+                            <circle cx="90" cy="20" r="7" fill="#C45A2D" id="dlp-laptop-rust-dot" />
+                            <circle cx="60" cy="70" r="7" fill="#888780" />
+                            <circle cx="110" cy="45" r="5" fill="#888780" />
+                          </svg>
+                          <div class="dlp-doc-label" style="font-size: 13px; margin-top: 20px;">Internal Architecture
+                            v4.2</div>
+                          <svg class="dlp-frozen-cursor" width="14" height="20" viewBox="0 0 14 20" fill="none">
+                            <path d="M1 1l11 8-5 1.2L6 17z" fill="rgba(240,237,232,0.35)" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dlp-laptop-base"></div>
+                    <div class="dlp-laptop-footer">
+                      <span class="dlp-laptop-label" style="font-size: 13px;">Company managed laptop</span>
+                    </div>
+                  </div>
+
+                  <!-- Scene 2 cinematic statement -->
+                  <div id="dlp-stmt-engineers" class="dlp-cinematic-statement" style="bottom: 30%; top: auto;">Three
+                    engineers pasted architecture diagrams to ChatGPT to ship faster.</div>
+
+                  <!-- VIGNETTE 1: SAMSUNG -->
+                  <!-- The Story: ChatGPT Formation -->
+                  <div id="dlp-scene-nodes" class="dlp-stage-scene">
+                    <!-- Scatter nodes injected by JS -->
+                    <div id="dlp-chatgpt-nodes-container"
+                      style="position:absolute; inset:0; pointer-events:none; z-index:1;"></div>
+
+                    <!-- Actual ChatGPT logo SVG, drawn via stroke animation -->
+                    <svg id="dlp-chatgpt-svg" viewBox="0 0 24 24" width="180" height="180" fill="none"
+                      style="position:relative; z-index:2; opacity:0;">
+                      <path id="dlp-chatgpt-path"
+                        d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A6.0395 6.0395 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.5963 3.8558L13.1038 8.364l2.0201-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.4114-.6765zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.0453l-2.0201-1.1638a.0757.0757 0 0 1-.038-.0567V5.2495a4.4944 4.4944 0 0 1 7.3757-3.4537l-.142.0805L8.704 4.6356a.7948.7948 0 0 0-.3927.6813zm1.0974-2.3617l2.603-1.506 2.6029 1.506v3.012l-2.6029 1.506-2.603-1.506z"
+                        stroke="var(--rust)" stroke-width="0.3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <div id="dlp-stmt-s1" class="dlp-cinematic-statement" style="bottom: 30%; top: auto;">OpenAI cannot
+                      delete specific prompts.</div>
+                    <div id="dlp-stmt-s2" class="dlp-cinematic-statement" style="bottom: 30%; top: auto;">This data is
+                      in the model now.</div>
+                    <div id="dlp-stmt-s3" class="dlp-cinematic-statement highlight" style="bottom: 30%; top: auto;">
+                      Permanently.</div>
+                  </div>
+
+                  <!-- The Reveal: Samsung Decipher -->
+                  <div id="dlp-scene-decipher-samsung" class="dlp-stage-scene dlp-decipher-scene">
+                    <div class="dlp-decipher-wrap">
+                      <div id="dlp-decipher-samsung-text" class="dlp-decipher-text"></div>
+                      <div class="dlp-decipher-sub">Proprietary IP exposed.</div>
+                    </div>
+                  </div>
+
+                  <!-- VIGNETTE 2: ROCKSTAR -->
+                  <!-- The Story: Terminal & Waterfall -->
+                  <div id="dlp-scene-rockstar" class="dlp-stage-scene">
+                    <div id="dlp-terminal">
+                      <div class="dlp-term-header">
+                        <div class="dlp-chrome-dots">
+                          <div class="dlp-cdot red"></div>
+                          <div class="dlp-cdot yellow"></div>
+                          <div class="dlp-cdot green"></div>
+                        </div>
+                        <div class="dlp-term-title">bash — 80x24</div>
+                      </div>
+                      <div class="dlp-term-body" id="dlp-term-body"></div>
+                    </div>
+                    <div id="dlp-waterfall-grid"></div>
+                    <div id="dlp-waterfall-overlay" class="dlp-cinematic-statement highlight"
+                      style="opacity: 0; bottom: 25%; top: auto;">90 VIDEOS LEAKED</div>
+                  </div>
+
+                  <!-- The Reveal: Rockstar Decipher -->
+                  <div id="dlp-scene-decipher-rockstar" class="dlp-stage-scene dlp-decipher-scene">
+                    <div class="dlp-decipher-wrap">
+                      <div id="dlp-decipher-rockstar-text" class="dlp-decipher-text"></div>
+                      <div class="dlp-decipher-sub">$5,000,000 to contain.</div>
+                    </div>
+                  </div>
+
+                  <!-- VIGNETTE 3: AT&T -->
+                  <!-- The Story: Flatline -->
+                  <div id="dlp-scene-att" class="dlp-stage-scene">
+                    <div id="dlp-flatline-container">
+                      <svg width="100%" height="200" viewBox="0 0 800 200" preserveAspectRatio="none">
+                        <path id="dlp-ekg-path"
+                          d="M0,100 L50,100 L60,80 L70,120 L80,100 L700,100 L710,50 L720,150 L730,20 L740,180 L750,100 L800,100"
+                          fill="none" stroke="var(--rust)" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <rect id="dlp-ekg-mask" x="0" y="0" width="800" height="200" fill="#0c0b09" />
+                      </svg>
+                    </div>
+                    <div id="dlp-stmt-att1" class="dlp-cinematic-statement" style="bottom: 38%; top: auto;">73 million
+                      accounts leaked.</div>
+                    <div id="dlp-stmt-att2" class="dlp-cinematic-statement" style="bottom: 38%; top: auto;">
+                      Unacknowledged on the dark web for 3 years.</div>
+                    <div id="dlp-stmt-att3" class="dlp-cinematic-statement highlight" style="bottom: 38%; top: auto;">
+                      Then the settlement hits.</div>
+                  </div>
+
+                  <!-- The Reveal: AT&T Decipher -->
+                  <div id="dlp-scene-decipher-att" class="dlp-stage-scene dlp-decipher-scene">
+                    <div class="dlp-decipher-wrap">
+                      <div id="dlp-decipher-att-text" class="dlp-decipher-text"></div>
+                      <div class="dlp-decipher-sub">$177,000,000 settlement.</div>
+                    </div>
+                  </div>
+
+                  <!-- VIGNETTE 4: CHANGE HEALTHCARE -->
+                  <!-- The Story: Freeze -->
+                  <div id="dlp-scene-change" class="dlp-stage-scene">
+                    <div id="dlp-folder-grid"
+                      style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; width: 80%; opacity: 0; z-index: 1;">
+                      <!-- Injected via JS -->
+                    </div>
+                    <div id="dlp-padlock-container"
+                      style="position: absolute; z-index: 5; opacity: 0; transform: scale(3);">
+                      <svg width="80" height="100" viewBox="0 0 24 30" fill="none" stroke="var(--rust)"
+                        stroke-width="2">
+                        <path id="dlp-lock-shackle" d="M6 12V7a6 6 0 0112 0v5" stroke-linecap="round" />
+                        <rect x="3" y="12" width="18" height="14" rx="2" fill="#0c0b09" />
+                        <circle cx="12" cy="19" r="2" fill="var(--rust)" />
+                      </svg>
+                    </div>
+
+                    <div id="dlp-stmt-ch1" class="dlp-cinematic-statement" style="bottom: 30%; top: auto;">Ransomware
+                      deployed.</div>
+                    <div id="dlp-stmt-ch2" class="dlp-cinematic-statement" style="bottom: 30%; top: auto;">Pharmacies
+                      went dark.</div>
+                    <div id="dlp-stmt-ch3" class="dlp-cinematic-statement highlight" style="bottom: 30%; top: auto;">
+                      Patients couldn't fill prescriptions.</div>
+                  </div>
+
+                  <!-- The Reveal: Change Healthcare Decipher -->
+                  <div id="dlp-scene-decipher-change" class="dlp-stage-scene dlp-decipher-scene">
+                    <div class="dlp-decipher-wrap">
+                      <div id="dlp-decipher-change-text" class="dlp-decipher-text"></div>
+                      <div class="dlp-decipher-sub">$22,000,000,000 economic impact.</div>
+                    </div>
+                  </div>
+
+                  <!-- SCENE: THE CLIMAX -->
+                  <div id="dlp-scene-list" class="dlp-stage-scene">
+                    <!-- The list of 4 -->
+                    <div id="dlp-final-list">
+                      <div class="dlp-final-item" id="dlp-li-1"><span
+                          class="dlp-final-num">01</span><span>Samsung</span></div>
+                      <div class="dlp-final-item" id="dlp-li-2"><span class="dlp-final-num">02</span><span>Rockstar
+                          Games</span></div>
+                      <div class="dlp-final-item" id="dlp-li-3"><span
+                          class="dlp-final-num">03</span><span>AT&amp;T</span></div>
+                      <div class="dlp-final-item" id="dlp-li-4"><span class="dlp-final-num"
+                          id="dlp-morph-04">04</span><span id="dlp-li-4-name">Change Healthcare</span></div>
+                    </div>
+
+                    <!-- The counter (hidden, receives the morphed value) -->
+                    <div id="dlp-number-container">
+                      <div id="dlp-big-number">4</div>
+                      <div id="dlp-big-suffix"
+                        style="font-family: 'DM Serif Display', serif; font-size: clamp(100px, 13vw, 180px); color: #f0ede8; margin-left: 4px; opacity: 0;">
+                        s</div>
+                    </div>
+
+                    <!-- Cinematic statements -->
+                    <div id="dlp-stmt-climax1" class="dlp-cinematic-statement" style="bottom: 30%; top: auto;">These are
+                      the ones that made the news.</div>
+                    <div id="dlp-stmt-400" class="dlp-cinematic-statement" style="bottom: 30%; top: auto;">Just last
+                      year.</div>
+                    <div id="dlp-stmt-final" class="dlp-cinematic-statement highlight" style="bottom: 30%; top: auto;">
+                      Most of them don't know yet.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <hr class="detail-rule">
+
+          <div class="detail-section" id="d-broken">
+            <p class="detail-section-label">Why Existing Tools Fail</p>
+            <h2 class="detail-section-title">The threat moved. The tools didn't</h2>
+            <p>Traditional DLP is built on policies. Rules written by hand, designed around threats someone anticipated.
+              That assumption held for a decade.</p>
+            <p style="color:var(--text)">Then AI made it irrelevant overnight.</p>
+            <div class="blueprint-schematic" style="position: relative; padding: 40px 0; font-family: 'Instrument Sans', sans-serif; margin: 64px 0;">
+              <style>
+                .blueprint-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; }
+
+                .blueprint-panel { display: flex; flex-direction: column; }
+                .panel-a { padding: 0 64px 32px 0; border-right: 1px solid rgba(240, 237, 232, 0.1); }
+                .panel-b { padding: 0 0 32px 64px; }
+
+                .blueprint-header { margin-bottom: 64px; position: relative; z-index: 2;}
+                
+                .blueprint-label-sm { font-family: monospace; font-size: 11px; letter-spacing: 0.15em; color: rgba(240, 237, 232, 0.4); text-transform: uppercase; margin-bottom: 12px; display: block; }
+                
+                .blueprint-title { font-size: 16px; font-weight: 500; color: var(--text); }
+                .blueprint-title.rust { color: var(--rust); }
+
+                .technical-label { font-family: monospace; font-size: 11px; color: rgba(240, 237, 232, 0.6); letter-spacing: 0.05em; line-height: 1.4; display: block; }
+
+                .bare-icon { width: 20px; height: 20px; stroke: rgba(240, 237, 232, 0.8); stroke-width: 1.5px; }
+                .rust-icon { stroke: var(--rust); }
+
+                /* Left Side: Assumption Grid */
+                .left-grid { display: grid; grid-template-columns: 1fr auto 140px; grid-template-rows: 140px auto; width: 100%; position: relative; z-index: 2; }
+                .threats-visual { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; justify-content: space-evenly; padding: 10px 0; }
+                .threat-line { width: 100%; border-top: 1.5px dashed var(--rust); }
+                
+                .wall-visual { grid-column: 2; grid-row: 1; width: 2px; background: rgba(240,237,232,0.9); height: 100%; position: relative; box-shadow: 0 0 10px rgba(240,237,232,0.1); }
+                .wall-visual::after { content: ''; position: absolute; top: -6px; bottom: -6px; left: -6px; right: -6px; border: 1px solid rgba(240, 237, 232, 0.15); }
+                
+                .share-visual { grid-column: 3; grid-row: 1; display: flex; align-items: center; justify-content: center; }
+                
+                .threats-label { grid-column: 1; grid-row: 2; text-align: center; margin-top: -16px; }
+                .share-label { grid-column: 3; grid-row: 2; text-align: center; margin-top: -16px; }
+
+                /* Right Side: Reality */
+                .reality-container { position: relative; width: 100%; height: 140px; display: flex; align-items: center; z-index: 2; }
+                .trace-svg { position: absolute; left: 40px; top: 50%; transform: translateY(-50%); width: calc(100% - 200px); height: 140px; overflow: visible; }
+                .trace-path { fill: none; stroke: var(--rust); stroke-width: 1.5px; stroke-linejoin: miter; stroke-dasharray: 4 4; }
+                .trace-arrow { fill: none; stroke: var(--rust); stroke-width: 1.5px; stroke-linejoin: miter; }
+
+                .endpoint-stack { position: absolute; right: 0; display: flex; flex-direction: column; justify-content: space-between; height: 140px; top: 50%; transform: translateY(-50%); width: 140px; }
+                .endpoint-item { display: flex; align-items: center; gap: 16px; }
+              </style>
+
+              <div class="blueprint-grid">
+                <!-- Panel A: Assumption -->
+                <div class="blueprint-panel panel-a">
+                  <div class="blueprint-header">
+                    <span class="blueprint-label-sm">THE ASSUMPTION</span>
+                    <div class="blueprint-title">Defending against known break-ins.</div>
+                  </div>
+                  
+                  <div class="left-grid">
+                    <div class="threats-visual">
+                      <div class="threat-line" style="opacity: 0.4;"></div>
+                      <div class="threat-line" style="opacity: 0.8;"></div>
+                      <div class="threat-line" style="opacity: 0.3;"></div>
+                      <div class="threat-line" style="opacity: 0.6;"></div>
+                      <div class="threat-line" style="opacity: 1.0;"></div>
+                    </div>
+                    
+                    <div class="wall-visual"></div>
+                    
+                    <div class="share-visual">
+                      <svg class="bare-icon" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    </div>
+                    
+                    <div class="threats-label">
+                      <span class="technical-label">External Threats</span>
+                    </div>
+                    
+                    <div class="share-label">
+                      <span class="technical-label">Known Shares</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Panel B: Reality -->
+                <div class="blueprint-panel panel-b">
+                  <div class="blueprint-header">
+                    <span class="blueprint-label-sm" style="color: rgba(196, 90, 45, 0.9);">THE REALITY</span>
+                    <div class="blueprint-title rust">Data leaking through untracked workflows.</div>
+                  </div>
+                  
+                  <div class="reality-container">
+                    <div style="position: absolute; left: 0; width: 40px; display: flex; justify-content: center;">
+                      <svg class="bare-icon" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    </div>
+                    
+                    <svg class="trace-svg" preserveAspectRatio="none" viewBox="0 0 100 140">
+                      <path class="trace-path" d="M 0 70 L 20 70 L 20 10 L 95 10" />
+                      <polyline class="trace-arrow" points="91 7, 96 10, 91 13" />
+
+                      <path class="trace-path" d="M 0 70 L 40 70 L 40 50 L 95 50" />
+                      <polyline class="trace-arrow" points="91 47, 96 50, 91 53" />
+
+                      <path class="trace-path" d="M 0 70 L 40 70 L 40 90 L 95 90" />
+                      <polyline class="trace-arrow" points="91 87, 96 90, 91 93" />
+
+                      <path class="trace-path" d="M 0 70 L 20 70 L 20 130 L 95 130" />
+                      <polyline class="trace-arrow" points="91 127, 96 130, 91 133" />
+                    </svg>
+
+                    <div class="endpoint-stack">
+                      <div class="endpoint-item">
+                        <svg class="bare-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span class="technical-label">Web Browsers</span>
+                      </div>
+                      <div class="endpoint-item">
+                        <svg class="bare-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                        <span class="technical-label">Native Apps</span>
+                      </div>
+                      <div class="endpoint-item">
+                        <svg class="bare-icon" viewBox="0 0 24 24" fill="none"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                        <span class="technical-label">CLI Prompts</span>
+                      </div>
+                      <div class="endpoint-item">
+                        <svg class="bare-icon" viewBox="0 0 24 24" fill="none"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <span class="technical-label">VSCode Extensions</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p style="margin-top: 32px; font-weight: 500; color: var(--rust);">This is not an execution problem. It is a structural one.</p>
+            <p>The tools didn't fail. They worked exactly as designed. In response, the
+              industry added more rules, more specialists, more alerts. The average SOC team now receives over 4,000
+              alerts a day. Two thirds go uninvestigated. More than half of the rest are false positives. False
+              positives are not the problem, they are the symptom of a system enforcing rigid rules on behaviour that
+              was never rigid to begin with.</p>
+            <p>Every competitor was building faster versions of the same broken system. I didn't.</p>
+          </div>
+
+          <hr class="detail-rule">
+
+          <div class="detail-section" id="d-bet">
+            <p class="detail-section-label">The Bet</p>
+            <h2 class="detail-section-title">What if I made the villain the hero?</h2>
+            <p style="font-size:13px;color:var(--rust);letter-spacing:0.02em;margin-top:-12px;margin-bottom:32px">Not
+              AI-assisted. Not AI-featured. Fully agentic.</p>
+            <p>The same AI creating the problem was also the only thing fast enough to catch it.</p>
+            <p>That was the bet. Not AI-assisted. Not AI-featured. Fully agentic, where intelligence drives the entire
+              experience from the moment you log in. IBM had never built anything like this in its security portfolio.
+              The resistance wasn't <em style="color:var(--text)">"it can't be done"</em>. &nbsp;It was <em
+                style="color:var(--text)">"a known formula might work, why take the risk"</em>. &nbsp;That
+              sentence, spoken inside one of the largest enterprise software companies in the world, is exactly the kind
+              of thinking that lets a category stay broken for a decade.</p>
+            <div class="insight-quote">
+              <p>During early exploration I found IBM already had a data pipeline product in the portfolio. A pipe with
+                visibility but no judgment. I absorbed it as a native layer for the agents' baseline. They understood the organisation's data environment before a
+                single analyst logged in. The harder call made the platform possible.</p>
+            </div>
+            <p>Every other product was designed for threats someone had already named. This one was built for everything
+              they hadn't.</p>
+          </div>
+
+          <hr class="detail-rule">
+
+          <div class="detail-section" id="d-built">
+            <p class="detail-section-label">What I Built</p>
+            <h2 class="detail-section-title">Four systems. One premise.</h2>
+            <p>The agentic layer wasn't one thing. It was four systems, each one built around the same premise: the
+              bottleneck the category had accepted as permanent was the one worth removing.</p>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="process-step-num">1</div>
+                <div class="process-step-content">
+                  <h4>The dashboard that doesn't exist until you log in</h4>
+                  <p>Every IBM security tool shipped with the same static dashboard. Every sales pitch promised this one
+                    would be different. Not one of them was.</p>
+                  <p>A CISO and a data analyst see completely different interfaces without configuring anything. When a phishing campaign hits, the CISO clicks one card and instantly shares a live dashboard with the SOC team.</p>
+                  <div class="showcase-video" id="dashboard-showcase">
+                    <div class="showcase-browser">
+                      <div class="showcase-chrome">
+                        <div class="showcase-dots">
+                          <div class="showcase-dot red"></div>
+                          <div class="showcase-dot yellow"></div>
+                          <div class="showcase-dot green"></div>
+                        </div>
+                        <div class="showcase-url">ibm-dlp.security/dashboard</div>
+                      </div>
+                      <div class="showcase-screen">
+                        <video
+                          id="dashboard-video"
+                          class="showcase-video-el"
+                          src="images/dashboard.mp4"
+                          muted
+                          loop
+                          playsinline
+                          preload="none"
+                          poster="">
+                        </video>
+                        <div class="showcase-overlay" id="dashboard-overlay">
+                          <button class="showcase-play-btn" id="dashboard-play-btn" aria-label="Play video">
+                            <svg viewBox="0 0 24 24" fill="none">
+                              <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1"/>
+                              <path d="M9.5 7.5L16.5 12L9.5 16.5V7.5Z" fill="currentColor"/>
+                            </svg>
+                          </button>
+                          <span class="showcase-overlay-label">Agentic Dashboard</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="showcase-caption">The interface the room saw. No template. No configuration.</p>
+                  </div>
+                </div>
+              </div>
+
+                    <div class="process-step">
+                <div class="process-step-num">2</div>
+                <div class="process-step-content">
+                  <h4>Policies that maintain themselves</h4>
+                  <p>The shift was to remove humans from detection entirely: agents observe behavior directly, and when compliance needs policies, the platform writes them itself. Thousands that nobody could
+                    manage become hundreds that manage themselves.</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="process-step-num">3</div>
+                <div class="process-step-content">
+                  <h4>Show stories, not alerts</h4>
+                  <p>The signal was always there. Nobody had connected it.</p>
+
+                  <!-- Agent Flow Diagram — sketch: named boxes, person pivot on spine -->
+                  <div style="margin: 48px 0 32px;">
+
+                    <svg width="100%" viewBox="0 0 700 78" fill="none" preserveAspectRatio="xMidYMid meet" style="display:block; overflow:visible;">
+
+                      <!-- LEFT: dashed violation signals, uniform width, entering OA box -->
+                      <line x1="0" y1="22" x2="110" y2="22" stroke="rgba(196,90,45,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
+                      <line x1="0" y1="31" x2="110" y2="31" stroke="rgba(196,90,45,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                      <line x1="0" y1="40" x2="110" y2="40" stroke="rgba(196,90,45,0.6)"  stroke-width="1" stroke-dasharray="4 3"/>
+                      <line x1="0" y1="49" x2="110" y2="49" stroke="rgba(196,90,45,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                      <line x1="0" y1="58" x2="110" y2="58" stroke="rgba(196,90,45,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
+                      <!-- Directional arrowhead on the main signal -->
+                      <polyline points="104,37 108,40 104,43" fill="none" stroke="rgba(196,90,45,0.6)" stroke-width="1"/>
+
+                      <!-- OBSERVING AGENT box (Gray/Infrastructure) -->
+                      <rect x="110" y="12" width="150" height="56" stroke="rgba(240,237,232,0.6)" stroke-width="1" fill="#0c0b09"/>
+                      <text x="185" y="35" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(240,237,232,0.6)" letter-spacing="1.6">OBSERVING</text>
+                      <text x="185" y="49" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(240,237,232,0.6)" letter-spacing="1.6">AGENT</text>
+                      <circle cx="260" cy="40" r="1.5" fill="rgba(240,237,232,0.6)"/>
+
+                      <!-- Connector: OA right edge → person left shoulder (Gray) -->
+                      <line x1="260" y1="40" x2="330" y2="40" stroke="rgba(240,237,232,0.28)" stroke-width="1"/>
+
+                      <!-- Person icon: sits on the spine (Gray) -->
+                      <circle cx="350" cy="21" r="7"  stroke="rgba(240,237,232,0.5)" stroke-width="1" fill="none"/>
+                      <path d="M 336,34 Q 350,27 364,34" stroke="rgba(240,237,232,0.5)" stroke-width="1" fill="none" stroke-linecap="round"/>
+                      <!-- ghost connector: shoulders down to spine -->
+                      <line x1="350" y1="34" x2="350" y2="40" stroke="rgba(240,237,232,0.14)" stroke-width="1" stroke-dasharray="2 2"/>
+                      <circle cx="350" cy="40" r="1.5" fill="rgba(240,237,232,0.5)"/>
+
+                      <!-- Connector: person right shoulder → RA left edge (Rust/Action) -->
+                      <line x1="370" y1="40" x2="440" y2="40" stroke="var(--rust)" stroke-width="1"/>
+                      <circle cx="440" cy="40" r="1.5" fill="var(--rust)"/>
+
+                      <!-- RESOLVING AGENT box (Rust/Action) -->
+                      <rect x="440" y="12" width="150" height="56" stroke="var(--rust)" stroke-width="1" fill="#0c0b09"/>
+                      <text x="515" y="35" text-anchor="middle" font-family="monospace" font-size="9" fill="var(--rust)" letter-spacing="1.6">RESOLVING</text>
+                      <text x="515" y="49" text-anchor="middle" font-family="monospace" font-size="9" fill="var(--rust)" letter-spacing="1.6">AGENT</text>
+                      <circle cx="590" cy="40" r="1.5" fill="var(--rust)"/>
+
+                      <!-- RIGHT: The Scale Matrix (5x10 grid of dots = 50 closed cases) -->
+                      <!-- Single output connector -->
+                      <line x1="590" y1="40" x2="602" y2="40" stroke="var(--rust)" stroke-width="1"/>
+                      <!-- Matrix block (10 columns, 5 rows) created via rounded stroke dashes -->
+                      <line x1="610" y1="24" x2="682" y2="24" stroke="var(--rust)" stroke-width="2" stroke-linecap="round" stroke-dasharray="0 8"/>
+                      <line x1="610" y1="32" x2="682" y2="32" stroke="var(--rust)" stroke-width="2" stroke-linecap="round" stroke-dasharray="0 8"/>
+                      <line x1="610" y1="40" x2="682" y2="40" stroke="var(--rust)" stroke-width="2" stroke-linecap="round" stroke-dasharray="0 8"/>
+                      <line x1="610" y1="48" x2="682" y2="48" stroke="var(--rust)" stroke-width="2" stroke-linecap="round" stroke-dasharray="0 8"/>
+                      <line x1="610" y1="56" x2="682" y2="56" stroke="var(--rust)" stroke-width="2" stroke-linecap="round" stroke-dasharray="0 8"/>
+
+                    </svg>
+
+                    <!-- Labels anchored to SVG element centers (viewBox 700px wide) -->
+                    <!-- OA box center: 185/700 = 26.4% | Person: 350/700 = 50.0% | RA: 515/700 = 73.6% -->
+                    <div style="position:relative; height:56px; margin-top:14px;">
+                      <div style="position:absolute; left:26.4%; transform:translateX(-50%); text-align:center; width:150px;">
+                        <span class="technical-label">Stitches violations<br>into one case.</span>
+                      </div>
+                      <div style="position:absolute; left:50%; transform:translateX(-50%); text-align:center; width:110px;">
+                        <span class="technical-label">User takes<br>action.</span>
+                      </div>
+                      <div style="position:absolute; left:73.6%; transform:translateX(-50%); text-align:center; width:160px;">
+                        <span class="technical-label">Find 50 similar cases.<br>Closes them together.</span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <p>User takes one decision. System handles the rest. This single system drove the ~60% reduction in incident resolution time.</p>
+                  <!-- <div class="detail-visual">
+                    <p class="detail-visual-label">Incident Case Builder: Violations to Story</p>
+                    <p class="detail-visual-sub">Image to be added</p>
+                  </div> -->
+                </div>
+              </div>
+        
+              <div class="process-step">
+                <div class="process-step-num">4</div>
+                <div class="process-step-content">
+                  <h4>Onboarding that doesn't need a support call</h4>
+                  <p>Not a setup wizard. Not a chatbot. The onboarding agent works like an after-sales engineer and a
+                    domain consultant in the same room. It knows what to ask, knows when to act, and knows when to step
+                    back. In beta, support calls dropped by 80%. That number came before anyone expected it.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="detail-rule">
+
+          <div class="detail-section" id="d-room">
+            <p class="detail-section-label">The Room</p>
+            <h2 class="detail-section-title">It had been called a fairy tale for months.</h2>
+            <p>I built it anyway. Then I put it in a room with <span style="color:var(--text)">IBM's Security CTO, the
+                VP, the design director, and the dev director.</span></p>
+            <p>I logged in. The dashboard assembled itself in real time, tuned for the persona in front of them. No
+              configuration. No template. No admin. The room had walked in skeptical. It went quiet.</p>
+            <p>The VP turned to the dev director:<br><em style="color:var(--text)">"We are making your life hard and I
+                love it."</em></p>
+            <p>Then to me:<br><em style="color:var(--text)">"I wasn't expecting this."</em></p>
+            <p>The CTO leaned forward. He didn't stop at the dashboard. He wanted to see the policy engine, the incident
+              view, the full agentic layer underneath. Then he looked up.</p>
+            <div class="insight-quote">
+              <p>"Shanthosh, unknowingly you might have solved some of IBM's longest standing problems."</p>
+            </div>
+            <p>That sentence came from the CTO of IBM Security. In a room where the same idea had been called a fairy
+              tale six months earlier. He opened the doors. IBM WatsonX Orchestrate expressed interest in orchestrating
+              the platform's agents. What had started as a product nobody believed in was now an IBM-wide architecture
+              conversation.</p>
+          </div>
+
+          <hr class="detail-rule">
+
+          <div class="detail-section" id="d-validation">
+            <p class="detail-section-label">Validation</p>
+            <h2 class="detail-section-title">Three Groups. Three Different Truths.</h2>
+
+            <div id="validation-stack-container"
+              style="position: relative; height: 250vh; margin-top: 32px; margin-bottom: 48px;">
+              <div
+                style="position: sticky; top: 120px; width: 100%; height: 450px; display: flex; align-items: flex-start; justify-content: flex-start;">
+
+                <!-- Card 1 -->
+                <div class="val-card" id="val-card-1"
+                  style="position: absolute; width: 100%; max-width: 520px; background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; z-index: 1; transform-origin: top left;">
+                  <div
+                    style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px;">
+                    <span
+                      style="font-size: 11px; letter-spacing: 0.1em; color: var(--rust); font-weight: 600;">VALIDATION
+                      // 01</span>
+                    <span
+                      style="font-size: 11px; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600;">INTERNAL
+                      SECURITY</span>
+                  </div>
+                  <p
+                    style="font-size: 22px; color: var(--text); line-height: 1.4; margin-bottom: 28px; font-family: 'DM Serif Display', serif;">
+                    "It would save enormous amounts of their time. Some of what they did today might not need to be done
+                    at all anymore."
+                  </p>
+                  <div
+                    style="background: var(--bg2); padding: 16px 20px; border-radius: 6px; border: 1px solid var(--border);">
+                    <span
+                      style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); display: block; margin-bottom: 6px; font-weight: 600;">IMPACT</span>
+                    <p style="font-size: 15px; margin: 0; color: var(--text-mid); line-height: 1.6;">From people with
+                      the most to lose, that's the only validation that matters.</p>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="val-card" id="val-card-2"
+                  style="position: absolute; width: 100%; max-width: 520px; background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; z-index: 2; transform: translateY(100vh); transform-origin: top left;">
+                  <div
+                    style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px;">
+                    <span
+                      style="font-size: 11px; letter-spacing: 0.1em; color: var(--rust); font-weight: 600;">VALIDATION
+                      // 02</span>
+                    <span
+                      style="font-size: 11px; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600;">THE
+                      RED TEAM</span>
+                  </div>
+                  <p
+                    style="font-size: 22px; color: var(--text); line-height: 1.4; margin-bottom: 28px; font-family: 'DM Serif Display', serif;">
+                    Edge cases in educational institutions — classification patterns and compliance requirements the
+                    agents hadn't seen.
+                  </p>
+                  <div
+                    style="background: var(--bg2); padding: 16px 20px; border-radius: 6px; border: 1px solid var(--border);">
+                    <span
+                      style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); display: block; margin-bottom: 6px; font-weight: 600;">IMPACT</span>
+                    <p style="font-size: 15px; margin: 0; color: var(--text-mid); line-height: 1.6;">Known limits
+                      defined. Documented. Added to the roadmap.</p>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="val-card" id="val-card-3"
+                  style="position: absolute; width: 100%; max-width: 520px; background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; z-index: 3; transform: translateY(100vh); transform-origin: top left;">
+                  <div
+                    style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px;">
+                    <span
+                      style="font-size: 11px; letter-spacing: 0.1em; color: var(--rust); font-weight: 600;">VALIDATION
+                      // 03</span>
+                    <span
+                      style="font-size: 11px; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600;">END
+                      USERS</span>
+                  </div>
+                  <p
+                    style="font-size: 22px; color: var(--text); line-height: 1.4; margin-bottom: 28px; font-family: 'DM Serif Display', serif;">
+                    The trust layer worked. But users had a deeper question — not "do I trust the agent" but <span
+                      style="color:var(--rust)">"what can IBM see, and what is only mine."</span>
+                  </p>
+                  <div
+                    style="background: var(--bg2); padding: 16px 20px; border-radius: 6px; border: 1px solid var(--border);">
+                    <span
+                      style="font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); display: block; margin-bottom: 6px; font-weight: 600;">IMPACT</span>
+                    <p style="font-size: 15px; margin: 0; color: var(--text-mid); line-height: 1.6;">A visual system is
+                      now being designed. Walls that show exactly what IBM can access. The platform now has to earn
+                      sovereignty.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <hr class="detail-rule">
+
+          <div class="detail-section" id="d-outcome">
+            <p class="detail-section-label">Outcome</p>
+            <h2 class="detail-section-title">One Product. An IBM-Wide Conversation.</h2>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="process-step-num">1</div>
+                <div class="process-step-content">
+                  <h4>For IBM</h4>
+                  <p>The agentic dashboard pattern is being evaluated across the entire security portfolio. WatsonX
+                    Orchestrate is exploring agent orchestration at the platform level. One product decision became an
+                    IBM-wide architecture conversation.</p>
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="process-step-num">2</div>
+                <div class="process-step-content">
+                  <h4>For the category</h4>
+                  <p>The brief was to build a DLP product. What shipped was the first one built around how data actually
+                    moves, how teams actually work, and how trust actually gets earned.</p>
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="process-step-num">3</div>
+                <div class="process-step-content">
+                  <h4>For the problem</h4>
+                  <p style="color:var(--text)">The same AI creating the exposure is now the thing catching it. The
+                    villain became the hero.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <a class="next-case" href="case-guardium.html">
+        <div>
+          <p class="next-case-label">Next case study</p>
+          <p class="next-case-title">Unified Investigation Experience, Guardium</p>
+        </div><span class="next-case-arrow">&#8599;</span>
+      </a>
+    </div>
+  </div>
+
+
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="js/scripts.js" defer></script>
+  <!-- Unified Eye Cursor System -->
+  <script src="js/eye-cursor-system.js"></script>
+
+  <!-- GSAP for scroll-story animation -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/dlp-scroll-story.js" defer></script>
+  <script src="js/showcase-video.js" defer></script>
+</body>
+
+</html>

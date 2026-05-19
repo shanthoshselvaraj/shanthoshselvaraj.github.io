@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Frameworks
+   ========================================================================== */
+
+.frameworks-hero {
+  padding: 140px 0 80px;
+  background: var(--bg)
+}
+
+.frameworks-hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 56px;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 24px
+}
+
+.frameworks-hero-desc {
+  font-size: 18px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  max-width: 720px;
+  margin-bottom: 0
+}
+
+.frameworks-library-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  padding: 80px 0
+}
+
+.framework-library-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 48px;
+  transition: border-color 0.3s, background 0.3s
+}
+
+.framework-library-card:hover {
+  border-color: var(--border-warm);
+  background: var(--bg3)
+}
+
+.framework-library-card .framework-number {
+  font-family: 'DM Serif Display', serif;
+  font-size: 56px;
+  color: var(--rust);
+  opacity: 0.12;
+  margin-bottom: 24px;
+  line-height: 1;
+  font-weight: 400
+}
+
+.framework-library-card .framework-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2
+}
+
+.framework-meta {
+  font-size: 13px;
+  color: var(--rust);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px
+}
+
+.framework-library-card .framework-desc {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 32px
+}
+
+.framework-details {
+  border-top: 1px solid var(--border);
+  padding-top: 32px
+}
+
+.framework-details h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 16px;
+  margin-top: 28px
+}
+
+.framework-details h4:first-child {
+  margin-top: 0
+}
+
+.framework-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+
+.framework-details li {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative
+}
+
+.framework-details li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--rust);
+  font-size: 13px
+}
+
+.framework-details strong {
+  color: var(--text);
+  font-weight: 600
+}
+
+.frameworks-footer {
+  text-align: center;
+  padding: 80px 0 120px;
+  border-top: 1px solid var(--border)
+}
+
+.frameworks-footer-text {
+  font-size: 16px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 32px
+}

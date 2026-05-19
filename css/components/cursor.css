@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Cursor
+   ========================================================================== */
+
+/* ==========================================================================
+   Custom Cursor
+   Custom cursor dot and ring for enhanced UX
+   ========================================================================== */
+
+/* Hide default cursor globally - aggressive approach */
+html,
+html *,
+body,
+body *,
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+
+.cursor {
+  width: 8px;
+  height: 8px;
+  background: var(--rust);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 999;
+  transition: transform 0.15s;
+  transform: translate(-50%, -50%)
+}
+
+.cursor-ring {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(184, 92, 56, 0.35);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 998;
+  transition: transform 0.35s cubic-bezier(.25, .46, .45, .94);
+  transform: translate(-50%, -50%)
+}
+
+/* Page system */
+.page {
+  display: none
+}
+
+.page.active {
+  display: block;
+  animation: pageFadeIn 0.4s cubic-bezier(.25, .46, .45, .94) forwards
+}

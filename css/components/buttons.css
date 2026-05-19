@@ -1,0 +1,44 @@
+/* ========================================================================== 
+   Buttons
+   ========================================================================== */
+
+.btn-primary {
+  background: var(--rust);
+  color: var(--text);
+  padding: 13px 28px;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block
+}
+
+.btn-primary:hover {
+  background: var(--rust-dim);
+  transform: translateY(-1px)
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-mid);
+  padding: 13px 28px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-block
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-mid);
+  color: var(--text)
+}

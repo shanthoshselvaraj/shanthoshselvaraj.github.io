@@ -1,0 +1,200 @@
+/* ══════ Layout ══════ */
+#dlp-wrapper { position: relative; width: 100%; }
+#dlp-container { height: 17200px; position: relative; }
+#dlp-viewport { height: 100vh; width: 100%; background: var(--bg); position: sticky; top: 0; z-index: 10; overflow: hidden; }
+
+/* ══════ Caption ══════ */
+#dlp-caption { 
+  position: absolute; 
+  bottom: calc(50% - min(210px, 27vh) - 72px); 
+  left: max(calc(50% - min(350px, 42vw)), 24px); 
+  width: min(700px, 84vw); 
+  z-index: 40; 
+  font-size: 14px; 
+  line-height: 1.7; 
+  color: var(--text-muted); 
+  opacity: 0; 
+  font-style: italic; 
+}
+
+/* ══════ Shared Stage Scenes ══════ */
+.dlp-stage-scene { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; z-index: 2; pointer-events: none; }
+
+/* ══════ Browser (Scene 1 & 2) ══════ */
+/* EXACT MATCH TO DDR */
+.dlp-browser-window { 
+  width: min(700px, 84vw); 
+  height: min(420px, 54vh); 
+  background: var(--bg2); 
+  border-radius: 12px; 
+  border: 1px solid var(--border); 
+  overflow: hidden; 
+  display: flex; 
+  flex-direction: column; 
+}
+#dlp-shared-browser { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 5; opacity: 0; transform-origin: center center; }
+
+.dlp-chrome { 
+  padding: 10px 16px; 
+  border-bottom: 1px solid var(--border); 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+}
+.dlp-chrome-dots { display: flex; gap: 6px; }
+.dlp-cdot { width: 10px; height: 10px; border-radius: 50%; }
+.dlp-cdot.red { background: #FF5F57; } .dlp-cdot.yellow { background: #FFBD2E; } .dlp-cdot.green { background: #28C840; }
+.dlp-chrome-url { flex: 1; text-align: center; font-size: 9px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* DDR's exact padding for browser content */
+.dlp-chrome-body { 
+  flex: 1; 
+  padding: 12px; 
+  overflow: hidden; 
+}
+
+/* Chrome Art */
+.dlp-art-pub { font-size: 10px; letter-spacing: .14em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 14px; }
+.dlp-art-h1 { font-size: 20px; color: var(--text-primary); line-height: 1.25; margin-bottom: 8px; font-weight: 400; }
+#dlp-h1-rust { transition: color .3s ease; }
+.dlp-art-sub { font-size: 11px; color: var(--text-muted); margin-bottom: 16px; }
+.dlp-art-body { font-size: 10px; color: var(--text-muted); line-height: 1.7; margin-bottom: 6px; }
+.dlp-art-label { font-size: 9px; color: var(--text-dim); margin-top: 16px; margin-bottom: 8px; }
+.dlp-art-diagram { display: flex; justify-content: center; margin-bottom: 10px; }
+
+/* ══════ Laptop (Scene 2) ══════ */
+.dlp-laptop { display: flex; flex-direction: column; align-items: center; width: 460px; max-width: 100%; position: absolute; z-index: 4; opacity: 0; top: 50%; left: 50%; transform: translate(-50%, -50%); transform-origin: center center; }
+.dlp-laptop-screen { background: #111; border: 2px solid #333; border-radius: 10px 10px 0 0; padding: 6px; width: 100%; overflow: hidden; }
+.dlp-laptop-base { width: 110%; height: 10px; background: linear-gradient(180deg, #333 0%, #222 100%); border-radius: 0 0 6px 6px; position: relative; }
+.dlp-laptop-base::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: #444; border-radius: 0 0 3px 3px; }
+.dlp-laptop-footer { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.dlp-laptop-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-dim); letter-spacing: .04em; }
+
+/* Doc window inside laptop */
+.dlp-doc-window { width: 100%; border-radius: 6px; overflow: hidden; background: #0f0f0d; }
+.dlp-doc-chrome { display: flex; align-items: center; padding: 0 10px; background: #1a1a18; height: 30px; position: relative; }
+.dlp-doc-chrome .dlp-chrome-dots { position: absolute; left: 10px; }
+.dlp-doc-chrome .dlp-cdot { width: 7px; height: 7px; }
+.dlp-doc-title { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--rust); text-align: center; width: 100%; }
+.dlp-doc-body { padding: 28px; display: flex; flex-direction: column; align-items: center; position: relative; }
+.dlp-doc-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-dim); margin-top: 10px; }
+.dlp-frozen-cursor { position: absolute; top: calc(50% - 20px); left: calc(50% + 80px); opacity: .4; }
+
+/* ══════ The Decipher Pattern ══════ */
+.dlp-decipher-scene { text-align: center; }
+.dlp-decipher-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.dlp-decipher-text { 
+  font-family: 'DM Serif Display', serif; 
+  font-size: clamp(24px, 6vw, 60px); 
+  color: var(--text-primary); 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  font-variant-numeric: tabular-nums; 
+  display: flex; 
+  gap: 2px;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+/* No fixed width to prevent clipping, min-width provides scramble stability */
+.decrypt-char { display: inline-block; text-align: center; min-width: clamp(20px, 4vw, 40px); }
+.dlp-decipher-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--rust);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ══════ The Statements ══════ */
+.dlp-cinematic-statement {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: rgba(240, 237, 232, 0.6);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  line-height: 1.6;
+}
+.dlp-cinematic-statement.highlight { color: #f0ede8; }
+
+/* ══════ Vignette 1: ChatGPT Formation ══════ */
+.dlp-cgpt-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rust);
+  box-shadow: 0 0 8px rgba(184, 92, 56, 0.4);
+  pointer-events: none;
+}
+.dlp-cgpt-edge {
+  position: absolute;
+  height: 1px;
+  background: rgba(184, 92, 56, 0.3);
+  transform-origin: left center;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* ══════ Vignette 2: Rockstar Terminal & Waterfall ══════ */
+#dlp-terminal { width: 500px; background: #0c0b09; border: 1px solid #333; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+.dlp-term-header { background: #1a1a18; padding: 8px 12px; display: flex; align-items: center; border-bottom: 1px solid #222;}
+.dlp-term-title { flex: 1; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #888; }
+.dlp-term-body { padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #32d74b; min-height: 100px; display: flex; flex-direction: column; gap: 8px; }
+.term-line { opacity: 0; }
+.term-cursor { display: inline-block; width: 8px; height: 15px; background: #32d74b; animation: blink 1s step-end infinite; vertical-align: bottom; }
+@keyframes blink { 50% { opacity: 0; } }
+
+#dlp-waterfall-grid { display: grid; grid-template-columns: repeat(15, 1fr); gap: 4px; width: 500px; height: 200px; position: relative; }
+.dlp-waterfall-item { background: rgba(240, 237, 232, 0.05); border: 1px solid rgba(240, 237, 232, 0.1); border-radius: 2px; width: 100%; height: 28px; opacity: 0; transform: translateY(-50px); }
+
+/* ══════ Vignette 3: AT&T Flatline ══════ */
+#dlp-flatline-container { width: 100%; max-width: 800px; height: 200px; position: relative; margin-bottom: 40px; }
+/* Amount is now part of decipher sub, so we don't need dlp-stage-amount anymore */
+
+/* ══════ Vignette 4: Change Healthcare Folders ══════ */
+.dlp-folder-icon {
+  width: 40px;
+  height: 30px;
+  background: rgba(184, 92, 56, 0.15);
+  border: 1px solid var(--rust);
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.dlp-folder-icon::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -1px;
+  width: 14px;
+  height: 6px;
+  background: rgba(184, 92, 56, 0.15);
+  border: 1px solid var(--rust);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+}
+.dlp-folder-icon.locked {
+  background: rgba(240, 237, 232, 0.08);
+  border-color: rgba(240, 237, 232, 0.2);
+}
+.dlp-folder-icon.locked::before {
+  background: rgba(240, 237, 232, 0.08);
+  border-color: rgba(240, 237, 232, 0.2);
+}
+
+/* ══════ Scene 12: List & Final ══════ */
+#dlp-final-list { display: flex; flex-direction: column; gap: 16px; width: 400px; opacity: 0; }
+.dlp-final-item { display: flex; gap: 24px; border-bottom: 1px solid var(--border); padding-bottom: 12px; font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--text-primary); }
+.dlp-final-num { color: var(--rust); }
+
+#dlp-number-container { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: baseline; justify-content: center; opacity: 0; }
+#dlp-big-number { font-family: 'DM Serif Display', serif; font-size: clamp(120px, 15vw, 200px); color: var(--rust); line-height: 1; }

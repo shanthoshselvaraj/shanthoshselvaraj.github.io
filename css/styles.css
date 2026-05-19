@@ -1,0 +1,31 @@
+/* Base Layer - Foundation styles */
+@import 'base/variables.css';
+@import 'base/reset.css';
+
+/* Layout Layer - Page structure */
+@import 'layout/navigation.css';
+@import 'layout/footer.css';
+
+/* Component Layer - Reusable UI components */
+@import 'components/cursor.css';
+@import 'components/hero.css';
+@import 'components/hero-eye.css';
+@import 'components/buttons.css';
+@import 'components/cards.css';
+@import 'components/work-scene.css';
+@import 'components/about.css';
+@import 'components/timeline.css';
+
+@import 'components/contact.css';
+@import 'components/slider.css';
+@import 'components/micro-animations.css';
+
+/* Page Layer - Page-specific styles */
+@import 'pages/home.css';
+@import 'pages/work.css';
+@import 'pages/case-study.css';
+@import 'pages/frameworks.css';
+
+/* Utility Layer - Animations and responsive styles */
+@import 'utilities/animations.css';
+@import 'utilities/responsive.css';
